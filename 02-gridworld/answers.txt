@@ -1,0 +1,41 @@
+1. The bug does not always move to a new location.  When the bug's path is blocked, it takes one step to change direction and then it moves on the next step.
+2. The bug moves in the direction that it is currently facing, unless that direction is blocked.
+3. It the bug does not move, it changes direction by turning right.
+4. When the bug moves, it leaves behind a flower.
+5. When a bug is at the end of the grid and facing the edge, it turns twice (90 degrees). When it is not facing the edge, it simply moves forward.
+6. When a bug has a rock in the location immediately in front of it, it turns.
+7. A flower does not move.
+8. A flower's shade darkens each step until it finally turns a dark blue or it is replaced by a new flower.
+9. A rock does not move and does not have any behavior.
+10. More than one actor cannot be in the same location in the grid at the same time.
+
+1.
+=============
+0 - North
+45 - Northeast
+90 - East
+135 - Southeast
+180 - South
+225 - Southwest
+270 - West
+315 - Northwest
+360 - North
+=============
+2. We can move in any direction and number of spaces as long as the target position is not outside of the grid.  When we try to move the bug outside the grid, we get an IllegalArgumentException. 
+3. To change the color of an actor, we use the setColor method. 
+4. The bug disappears.
+
+1. The instance variable sideLength keeps track of the length of a side of the box to be drawn.
+2. The instance variable steps keeps track of the current length of the side being drawn minus one.
+3. The turn method is called twice because the bug needs to turn twice to turn 90 degrees.
+4. The move method is inherited from the Bug class.
+5. After a BoxBug is constructed, the size of its square pattern will always be the same because the sideLength instance variable which keeps track of the length of a side of the square is set by the constructor.
+6. The path a BoxBug travels can change if the BoxBug encounters an obstacle or the edge of the grid before finishing drawing a side.  If this occurs, the path of the BoxBug may change.
+7. The value of steps will be zero right after the BoxBug is constructed or after it makes a 90 degree turn.
+
+1. See class CircleBug
+The CircleBug moves in a pattern that more resembles a circle.
+2. See class SpiralBug
+3. See class ZBug
+4. See class DancingBugRunner
+5. To add a new BoxBug actor to the grid, we first need to construct a new instance of BoxBug by calling the BoxBug constructor and supplying an int that represents the length of a side of the square minus one. Then, we can optionally set the color using the setColor method that BoxBug inherits from the Bug class.  We then have to add the BoxBug to the grid by using the add method of the ActorWorld class and supplying two arguments, a instance of the Location class and the BoxBug.  The instance of the Location class can be constructed using two ints, representing the X and Y coordinates of the location on the grid.
