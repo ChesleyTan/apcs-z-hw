@@ -2,6 +2,24 @@ public class Driver {
     public static void main(String[] argS) {
         MyStack stack = new MyStack();        
         stack.push("one");
+        stack.push("one");
+        stack.push("one");
+        stack.push("one");
+        stack.push("one");
+        stack.push("one");
+        stack.push("one");
+        stack.push("one");
+        stack.push("one");
+        stack.push("one");
+        stack.push("two");
+        stack.push("two");
+        stack.push("two");
+        stack.push("two");
+        stack.push("two");
+        stack.push("two");
+        stack.push("two");
+        stack.push("two");
+        stack.push("two");
         stack.push("two");
         stack.push("three");
         System.out.println(stack);
