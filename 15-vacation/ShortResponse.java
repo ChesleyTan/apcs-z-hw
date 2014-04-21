@@ -87,4 +87,66 @@ public class ShortResponse {
             }
         }
     }
+
+    public Location dropLocationForColumn(int column) {
+        for (int i = theGrid.getNumRows() - 1;i > 0;i--) {
+            Location loc = new Location(i, column);
+            if (theGrid.get(loc) == null) {
+                return loc;
+            }
+        }
+        return null;
+    }
+
+    public boolean dropMatchesNeighbors(int column, Color pieceColor) {
+        Location loc = dropLocationForColumn(column);
+        if (loc == null) {
+            return false;
+        }
+        int countMatches = 0;
+        for (Location l : loc.getOccupiedAdjacentLocations()) {
+            if (theGrid.get(l).getColor().equals(pieceColor)) {
+                countMatches++;
+            }
+        }
+        return (countMatches >= 4);
+    }
+
+    public class LineBug extends Bug {
+        private int lineLength = 0;
+        private int lengthDrawn = 0;
+        public LineBug(int length) {
+            lineLength = length;
+        }
+        public void act() {
+            if (lengthDrawn == lineLength) {
+                removeSelfFromGrid();
+            }
+            else {
+                move();
+                lengthDrawn++;
+            }
+        }
+    }
+    
+    public void act() {
+        if (steps == 4 * length) {
+            removeSelfFromGrid();
+        }
+        else if (steps == 0) {
+            setDirection(Location.NORTHEAST);
+        }
+        else if (steps == length) {
+            setLocation(bottomRight);
+            setDirection(Location.NORTHWEST);
+        }
+        else if (steps == length * 3) {
+            setLocation(bottomLeft);
+            setDirection(Location.NORTHEAST);
+        }
+        move();
+        steps++;
+    }
+
+
 }
