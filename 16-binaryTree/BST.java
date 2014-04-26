@@ -14,6 +14,21 @@ public class BST {
         return tmp;
     }
 
+    public Node search2(int x) {
+        return search2(root, x);
+    }
+    public Node search2(Node c, int x) {
+        if (c == null || c.getData() == x) {
+            return c;
+        }
+        if (c.getData() < x) {
+            return search2(c.getLeft(), x);
+        }
+        else {
+            return search2(c.getRight(), x);
+        }
+    }
+
     public void insert(int x) {
         Node newNode = new Node(x);
         if (root == null) {
