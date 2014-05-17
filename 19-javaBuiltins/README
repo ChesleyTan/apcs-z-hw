@@ -1,8 +1,10 @@
 1)
-HashMap and TreeMap are both implementations of the Map interface and use a key-value type structure for data storage.  The HashMap is unsorted, whereas the TreeMap is sorted.  As a result, the HashMap delivers constant runtime for Get and Remove, which TreeMap delivers logarithmic runtime for Get, Put, Remove, and containsKey.
+HashMap and TreeMap are both implementations of the Map interface and use a key-value type structure for data storage.  The HashMap is unsorted, whereas the TreeMap is sorted.  As a result, the HashMap delivers constant runtime for Get and Remove, while TreeMap delivers logarithmic runtime for get(), put(), remove(), and containsKey().
 HashSet and TreeSet are both implementations of the Set interface, which does not allow for duplicate values.  They both store data as a set, but HashSet stores data in an unordered arrangement, whereas TreeSet stores data in an ordered arrangement.  
 2)
-A HashMap is an implementation of the Map interface.  It is unsorted.
-A TreeMap is an implementation of the NavigableMap interface, which is a Map that can be traversed in either ascending order or descending order. It uses a Red-Black tree whose values are sorted.  
+A HashMap is an implementation of the Map interface.  It is unsorted, and its data is held in a size-doubling array of Entry objects, which contain key-value pairs.
+A TreeMap is an implementation of the NavigableMap interface, which is a Map that can be traversed in either ascending order or descending order. It uses a Red-Black tree whose values are sorted.
 3)
-In our speed comparison between HashMaps and TreeMaps, we found that HashMaps ran faster for put, remove.
+In our speed comparison between HashMaps and TreeMaps, we found that HashMaps ran faster for put() and remove().
+4)
+The Java built-in heap data structure is the PriorityQueue.
